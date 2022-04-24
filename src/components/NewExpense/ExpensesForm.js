@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ExpensesForm.css";
 
 // FIXME
-const ExpensesForm = () => {
+const ExpensesForm = (props) => {
   //NOTE Multipe single State
   const [enterdTitel, setEnterdTitel] = useState("");
   const [enterdAmount, setEnterdAmount] = useState("");
@@ -53,11 +53,11 @@ const ExpensesForm = () => {
       date: new Date(enterdDate),
     };
 
+    props.OnSaveExpensesData(expenseData);
+    // console.log(expenseData);
     setEnterdTitel("");
     setEnterdAmount("");
     setEneterdDate("");
-
-    console.log(expenseData);
   };
   return (
     <form onSubmit={submitHandler}>
